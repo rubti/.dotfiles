@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -228,7 +228,7 @@ bar {
 include /etc/sway/config.d/*
 
 assign [app_id="firefox"] workspace 1
-assign [app_id="foot"] workspace 2
+assign [app_id="wezterm"] workspace 2
 assign [app_id="thunderbird_thunderbird"] workspace 5
 assign [class="obsidian"] workspace 3
 assign [app_id="Zotero"] workspace 3

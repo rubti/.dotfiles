@@ -1,4 +1,10 @@
 return {
 	'nvim-telescope/telescope.nvim', tag = 'v0.1.9',
-	dependencies = { 'nvim-lua/plenary.nvim' }
+	dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = function ()
+        local builtin = require('telescope.builtin')
+        vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = 'Telescope find files' })
+        vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = 'Telescope find git filesTelescope find files' })
+        vim.keymap.set('n', '<leader>ps', builtin.live_grep, { desc = 'Telescope live grep' })
+    end
 }

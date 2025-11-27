@@ -19,6 +19,9 @@ return {
 						rope_autoimport = {
 							enabled = true,
 						},
+						pycodestyle = {
+							maxLineLength = 88,
+						},
 					},
 				},
 			},

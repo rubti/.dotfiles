@@ -6,6 +6,7 @@ local augroup = vim.api.nvim_create_augroup
 local ThiloGroup = augroup("ThiloGroup", {})
 
 local autocmd = vim.api.nvim_create_autocmd
+require("luasnip.loaders.from_vscode").load()
 
 autocmd("LspAttach", {
 	group = ThiloGroup,

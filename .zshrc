@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/thilo/.dotfiles/ --work-tree=/home/thilo'
 alias vim='nvim'
+alias activate='source ./venv/bin/activate'
 . "$HOME/.cargo/env"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"

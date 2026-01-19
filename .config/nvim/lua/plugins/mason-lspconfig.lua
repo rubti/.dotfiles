@@ -16,9 +16,6 @@ return {
 			settings = {
 				pylsp = {
 					plugins = {
-						rope_autoimport = {
-							enabled = true,
-						},
 						pycodestyle = {
 							maxLineLength = 88,
 						},
@@ -77,6 +74,7 @@ return {
 						{ name = "path" },
 						{ name = "buffer" },
 						{ name = "nvim_lsp_signature_help" },
+						{ name = "vimtex" },
 					}),
 				})
 				cmp.setup.cmdline({ "/", "?" }, {
@@ -105,15 +103,10 @@ return {
 		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
+		"micangl/cmp-vimtex",
 
 		-- Snippets
-		{
-			"L3MON4D3/LuaSnip",
-			opts = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-				return {}
-			end,
-		},
+		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
 	},
 }

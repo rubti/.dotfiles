@@ -12,7 +12,14 @@ return {
 			local dapui = require("dapui")
 			local dap_python = require("dap-python")
 
-			require("dapui").setup({})
+			require("dapui").setup({
+				element_mappings = {
+					stacks = {
+						open = "<CR>",
+						expand = "o",
+					},
+				},
+			})
 			require("nvim-dap-virtual-text").setup({
 				commented = true, -- Show virtual text alongside comment
 			})

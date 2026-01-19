@@ -3,12 +3,13 @@ return {
 	{
 		"voldikss/vim-floaterm",
 		init = function()
-			vim.g.floaterm_keymap_new = "<leader>ts"
+			vim.g.floaterm_keymap_new = "<leader>tc"
 			vim.g.floaterm_keymap_prev = "<leader>tp"
 			vim.g.floaterm_keymap_next = "<leader>tn"
 			vim.g.floaterm_keymap_toggle = "<leader>tt"
 		end,
 		config = function()
+			vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { silent = true })
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = "python",
 				callback = function()

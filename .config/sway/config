@@ -6,6 +6,7 @@
 
 ### Variables
 #
+set $background /usr/share/backgrounds/Rainbow_lightbulb_by_Daniel_Micallef.png
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -30,8 +31,8 @@ output * bg /usr/share/backgrounds/Fuji_san_by_amaral.png fill
 #
 # Example configuration:
 #
-output HDMI-A-1 resolution 1920x1080 position 0,0
-output eDP-1 resolution 1920x1200 position 1920,0
+output DP-1 resolution 3440x1440 position 0,0
+output eDP-1 resolution 1920x1200 position 3440,0
 bindswitch lid:on output eDP-1 disable
 bindswitch lid:off output eDP-1 enable
 #
@@ -86,7 +87,8 @@ bindswitch lid:off output eDP-1 enable
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-    bindsym $mod+Shift+p exec 'swaylock -f -c 000000' 
+    bindsym $mod+p exec 'swaylock -f --image $background' 
+    bindsym $mod+Shift+p exec 'swaylock -f --image $background & systemctl suspend' 
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -246,6 +248,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 bindsym {
     # Capture the currently active output

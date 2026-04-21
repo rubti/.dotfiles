@@ -8,6 +8,11 @@ return {
 		vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope find git filesTelescope find files" })
 		vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope live grep" })
 		return {
+			pickers = {
+				find_files = {
+					find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown({}),

@@ -27,3 +27,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+vim.o.exrc = true
+
+local local_config = vim.fn.getcwd() .. "/.nvim.lua"
+if vim.fn.filereadable(local_config) == 1 then
+	dofile(local_config)
+end

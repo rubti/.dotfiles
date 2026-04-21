@@ -15,7 +15,7 @@ return {
 				layout = "vertical", -- 'vertical', 'horizontal', 'float'
 				width = 0.5, -- 50% of screen width
 			},
-			auto_insert_mode = true, -- Enter insert mode when opening
+			auto_insert_mode = false, -- Enter insert mode when opening
 			mappings = {
 				complete = { insert = "<S-Tab>" },
 				submit_prompt = { insert = "<C-CR>" },

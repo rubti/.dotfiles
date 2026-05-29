@@ -121,3 +121,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=/home/thilo/.opencode/bin:$PATH
 
 export PATH=$PATH:/opt/activitywatch
+export PATH=/usr/local/texlive/2026/bin/x86_64-linux:$PATH
+
+[ -s "$HOME"/.api_keys.sh ] && \. "$HOME"/.api_keys.sh

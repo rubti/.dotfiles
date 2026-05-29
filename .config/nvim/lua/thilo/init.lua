@@ -6,7 +6,10 @@ local augroup = vim.api.nvim_create_augroup
 local ThiloGroup = augroup("ThiloGroup", {})
 
 local autocmd = vim.api.nvim_create_autocmd
-require("luasnip.loaders.from_vscode").load()
+
+require("luasnip.loaders.from_vscode").lazy_load({
+	exclude = { "tex", "latex" },
+})
 
 autocmd("LspAttach", {
 	group = ThiloGroup,
@@ -42,5 +45,14 @@ autocmd("LspAttach", {
 		vim.keymap.set("n", "]d", function()
 			vim.diagnostic.goto_prev()
 		end, opts)
+	end,
+})
+
+autocmd("FileType", {
+	group = ThiloGroup,
+	pattern = "tex",
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = { "en_us" }
 	end,
 })

@@ -1,9 +1,21 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/zotero:$PATH
+case "$(uname -s)" in
+    Darwin)
+        export SSH_AUTH_SOCK="$(launchctl getenv SSH_AUTH_SOCK)"
+        export PATH=/opt/homebrew/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/zotero:$PATH
+        ;;
+
+    Linux)
+        export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+        export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/zotero:$PATH
+        alias torch='pyenv activate torch'
+        . "$HOME/.cargo/env"
+        ;;
+esac
+
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -107,15 +119,12 @@ source $ZSH/oh-my-zsh.sh
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
 alias activate='source ./venv/bin/activate'
-alias torch='pyenv activate torch'
-. "$HOME/.cargo/env"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init - zsh)"
 
 # opencode
 export PATH=/home/thilo/.opencode/bin:$PATH

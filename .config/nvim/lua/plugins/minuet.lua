@@ -4,7 +4,7 @@ return {
 		config = function()
 			require("minuet").setup({
 				virtualtext = {
-					auto_trigger_ft = { "*" },
+					auto_trigger_ft = { "python" },
 					keymap = {
 						-- accept whole completion
 						accept = "<A-A>",
@@ -20,15 +20,17 @@ return {
 						dismiss = "<A-e>",
 					},
 				},
+				context_window = 16000,
+				n_completions = 1,
 				provider = "openai_compatible",
-				request_timeout = 2.5,
-				throttle = 1500, -- Increase to reduce costs and avoid rate limits
-				debounce = 600, -- Increase to reduce costs and avoid rate limits
+				request_timeout = 2.0,
+				throttle = 1000, -- Increase to reduce costs and avoid rate limits
+				debounce = 250, -- Increase to reduce costs and avoid rate limits
 				provider_options = {
 					openai_compatible = {
 						api_key = "OPENROUTER_API_KEY",
 						end_point = "https://openrouter.ai/api/v1/chat/completions",
-						model = "deepseek/deepseek-v4-flash",
+						model = "google/gemini-2.5-flash-lite",
 						name = "Openrouter",
 						optional = {
 							max_tokens = 56,
